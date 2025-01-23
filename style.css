@@ -1,0 +1,15 @@
+.card {
+    height: 500px;
+    background-color: black;
+    color: antiquewhite;
+
+}
+.main-dark {
+    background-color: rgb(117, 116, 116);
+}
+.main-light {
+    background-color: #ededed;
+}
+.teste {
+    height: 60px
+}
