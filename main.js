@@ -2,26 +2,26 @@ import { albuns } from "./albuns.js";
 import { musicas } from "./musicas.js";
 import { sugestoes } from "./sugestoes.js"
 
+// SELETORES -> getElementById
 const divMusicas = document.getElementById("div-musicas")
 const divAlbuns = document.getElementById("div-albuns")
-const divBtn = document.getElementById("btn-lightmode")
 const divMain = document.getElementById("div-main")
-const divNavegacao = document.getElementById("navegacao")
 const divTitulo = document.getElementById("titulo")
 const divSugestoes = document.getElementById("div-sugestoes")
+const btnLightMode = document.getElementById("btn-lightmode")
 const btnSearch = document.getElementById("btn-search")
+const logoNavegacao = document.getElementById("navegacao")
 const inputNavegacao = document.getElementById('input-query')
-const divTitulo_musicas = document.getElementById('titulo-musicas')
-const divTitulo_albuns = document.getElementById('titulo-albuns')
-
+const h2TituloMusicas = document.getElementById('titulo-musicas')
+const h2TituloAlbuns = document.getElementById('titulo-albuns')
 
 
 musicas.map(element => {
     divMusicas.innerHTML += `   
        <div class='col-sm-12 col-md-6 col-lg-3'>
-        <div class='card mb-2'> 
+        <div class='card mb-2 divs-musica'> 
             <img class="thumb" src="${element.imagem}" alt=""> 
-            <h2>${element.nome}</h2>
+            <h2 class="exemplo">${element.nome}</h2>
             <p>${element.artista}, ${element.album}</p>
             <p>Duração: ${element.duracao}</p>
             <audio controls>
@@ -32,6 +32,17 @@ musicas.map(element => {
        </div>
     `
 });
+const divsMusica = document.querySelectorAll('.divs-musica');
+
+divsMusica.forEach((div) => {
+    div.addEventListener('click', () => {
+        alert('Cliquei na div')
+    })
+});
+
+// divsMusica.forEach((element) => {
+//     console.log(element)
+// })
 
 albuns.map(element => {
     divAlbuns.innerHTML += `
@@ -47,20 +58,18 @@ albuns.map(element => {
        </div>`
 })
 
-divBtn.addEventListener('click', () => {
-
-
+btnLightMode.addEventListener('click', () => {
     if (divMain.classList.contains('main-dark')) {
         divMain.classList.add('main-light');
         divMain.classList.remove('main-dark');
-        divNavegacao.classList.remove('bg-dark')
+        logoNavegacao.classList.remove('bg-dark')
         divTitulo.classList.add('text-dark')
         return null
     }
     if (divMain.classList.contains('main-light')) {
         divMain.classList.remove('main-light');
         divMain.classList.add('main-dark');
-        divNavegacao.classList.add('bg-dark')
+        logoNavegacao.classList.add('bg-dark')
         divTitulo.classList.remove('text-dark')
         return null
     }
@@ -89,9 +98,9 @@ btnSearch.addEventListener('click', (event) => {
         return alert('Nao foi possivel encontrar tal pesquisa')
     }
 
-    divTitulo_musicas.innerHTML = ""
+    h2TituloMusicas.innerHTML = ""
 
-    divTitulo_albuns.innerHTML = ""
+    h2TituloAlbuns.innerHTML = ""
    
 
 
