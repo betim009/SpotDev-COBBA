@@ -34,7 +34,7 @@ export const musicas =
       album: "Club Essentials",
       imagem: "https://i.scdn.co/image/ab67616d0000b273cbc250a02c6868da525b0c21",
       duracao: "3:56",
-      mp3: "lil_mama.mp3"
+      mp3: "lil_mama.webm"
     },
     {
       id: 5,
